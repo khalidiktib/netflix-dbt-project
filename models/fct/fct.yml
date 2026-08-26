@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fct_ratings
+    columns:
+      - name: movie_id
+        tests:
+          - relationships:
+              to: ref('dim_movies')
+              field: movie_id
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('dim_users')
+              field: user_id
+      - name: rating
+        tests:
+          - not_null

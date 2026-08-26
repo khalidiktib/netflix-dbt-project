@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_movies
+    columns:
+      - name: movie_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_users
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+  - name: dim_movies_with_tags
+    tests:
+      - no_nulls_in_columns:
+          columns: ['movie_id', 'title']
